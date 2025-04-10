@@ -1,0 +1,6 @@
+client.azureopenai.key=
+client.azureopenai.endpoint=
+client.azureopenai.deploymentname=
+
+client.azure.content.safety.endpoint=
+client.azure.content.safety.key=

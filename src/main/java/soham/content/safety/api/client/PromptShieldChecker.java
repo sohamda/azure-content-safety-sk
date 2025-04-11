@@ -1,8 +1,8 @@
 package soham.content.safety.api.client;
 
-import com.apisdk.ApiClient;
 import com.apisdk.models.ShieldPromptOptions;
 import com.apisdk.models.ShieldPromptResult;
+import com.apisdk.textshieldprompt.TextShieldPromptRequestBuilder;
 import com.microsoft.kiota.authentication.AnonymousAuthenticationProvider;
 import com.microsoft.kiota.bundle.DefaultRequestAdapter;
 import org.slf4j.Logger;
@@ -31,10 +31,11 @@ public class PromptShieldChecker {
         final AnonymousAuthenticationProvider authProvider =
                 new AnonymousAuthenticationProvider();
         final DefaultRequestAdapter adapter = new DefaultRequestAdapter(authProvider);
-        adapter.setBaseUrl(endpoint);
-        ApiClient apiClient = new ApiClient(adapter);
 
-        ShieldPromptResult post = apiClient.textShieldPrompt().withUrl(endpoint + "/text:shieldPrompt?api-version=2024-09-15-preview").post(shieldPromptOptions,
+        TextShieldPromptRequestBuilder textShieldPromptRequestBuilder = new TextShieldPromptRequestBuilder(
+                endpoint + "/text:shieldPrompt?api-version=2024-09-15-preview", adapter);
+
+        ShieldPromptResult post = textShieldPromptRequestBuilder.post(shieldPromptOptions,
                 requestConfiguration -> {
                     requestConfiguration.headers.put("Ocp-Apim-Subscription-Key", Collections.singleton(key));
                 }

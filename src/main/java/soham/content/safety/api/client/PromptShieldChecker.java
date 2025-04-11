@@ -36,10 +36,9 @@ public class PromptShieldChecker {
                 endpoint + "/text:shieldPrompt?api-version=2024-09-15-preview", adapter);
 
         ShieldPromptResult post = textShieldPromptRequestBuilder.post(shieldPromptOptions,
-                requestConfiguration -> {
-                    requestConfiguration.headers.put("Ocp-Apim-Subscription-Key", Collections.singleton(key));
-                }
+                requestConfiguration -> requestConfiguration.headers.put("Ocp-Apim-Subscription-Key", Collections.singleton(key))
         );
+
         Boolean attackDetected = post.getUserPromptAnalysis().getAttackDetected();
         log.debug("Is prompt shield checked: {}", attackDetected);
         return attackDetected;

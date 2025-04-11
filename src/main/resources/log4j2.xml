@@ -7,7 +7,7 @@
   </Appenders>
   <Loggers>
     <Logger name="soham.content.safety" level="debug"/>
-    <Logger name="com.microsoft.semantickernel" level="debug">
+    <Logger name="com.microsoft" level="debug">
       <AppenderRef ref="Console"/>
     </Logger>
   </Loggers>

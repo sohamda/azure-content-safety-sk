@@ -28,6 +28,14 @@
     </properties>
 
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-projects -->
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-ai-projects</artifactId>
+            <version>1.0.0-beta.2</version>
+        </dependency>
+
         <dependency>
             <groupId>com.microsoft.semantic-kernel</groupId>
             <artifactId>semantickernel-api</artifactId>
@@ -118,7 +126,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <file>${project.basedir}/src/main/resources/2024-09-15-preview.yaml</file>
+                    <kiotaLogLevel>debug</kiotaLogLevel>
+                    <file>src/main/resources/2024-09-15-preview.yaml</file>
                 </configuration>
             </plugin>
         </plugins>

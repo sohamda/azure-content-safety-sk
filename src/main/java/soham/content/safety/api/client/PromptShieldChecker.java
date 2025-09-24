@@ -17,7 +17,7 @@ public class PromptShieldChecker {
 
     private static final Logger log = LoggerFactory.getLogger(PromptShieldChecker.class);
 
-    public static String CONTENT_SAFETY_ENDPOINT = "client.azure.content.safety.endpoint";
+    public static String CONTENT_SAFETY_ENDPOINT = "client.azure.content.safety.endpoint2";
     public static String CONTENT_SAFETY_KEY = "client.azure.content.safety.key";
 
     public boolean isPromptSafe(String prompt) throws IOException {
